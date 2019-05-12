@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BusinessBears.WebUI.Models.LocationViewModel>
+
+@{
+    ViewData["Title"] = "Location Hub";
+}
+
+<h1>Index</h1>
+
+<!-- uses GET method instead of POST -->
+<!-- POST forms send the data in the request body. -->
+<!-- GET forms send the data in the URL itself, as a query string -->
+<!--                            query string -->
+<!--                       |---------------------| -->
+<!-- http://www.example.com?key=value&key2=value2 -->
+<div>
+    <form asp-action="Index" method="GET" class="form-inline">
+        <label class="sr-only" for="search">Search:</label>
+        <input type="search" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" name="search" placeholder="Search" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory.First().Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory.First().Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+    
+                </td>
+                <td>
+          
+                </td>
+            </tr>
+            @foreach (var item2 in item.Inventory)
+            {
+                <tr>
+                    <td>
+                   
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item2.Id)
+                    </td>
+                    <td>
+                        @Html.ActionLink("+", "EditPlus", new { id = item.ID,  id2 = item2.Id }) |
+                        @Html.DisplayFor(modelItem => item2.Quantity) |
+                        @Html.ActionLink("-", "EditMinus", new { id = item.ID,  id2 = item2.Id })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
