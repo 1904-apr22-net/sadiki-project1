@@ -736,11 +736,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj",
+      "projectUniqueName": "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj",
       "projectName": "BusinessBears.BL",
-      "projectPath": "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj",
+      "projectPath": "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj",
       "packagesPath": "C:\\Users\\Eid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.BL\\obj\\",
+      "outputPath": "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.BL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\ProgramData\\Xamarin\\NuGet\\",

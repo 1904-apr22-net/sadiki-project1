@@ -18,18 +18,18 @@ namespace OrderReviews.DataAccess.Repositories
     /// <remarks>
     /// This class ought to have better exception handling and logging.
     /// </remarks>
-    public class OrderRepository : IOrderRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly BBearContext  _dbContext;
 
-        private readonly ILogger<OrderRepository> _logger;
+        private readonly ILogger<ProductRepository> _logger;
 
         /// <summary>
         /// Initializes a new order repository given a suitable order data source.
         /// </summary>
         /// <param name="dbContext">The data source</param>
         /// <param name="logger">The logger</param>
-        public OrderRepository(BBearContext dbContext, ILogger<OrderRepository> logger)
+        public ProductRepository(BBearContext dbContext, ILogger<ProductRepository> logger)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
@@ -39,12 +39,10 @@ namespace OrderReviews.DataAccess.Repositories
         /// Get all orders with deferred execution, including any associated reviews.
         /// </summary>
         /// <returns>The collection of orders</returns>
-        public IEnumerable<BusinessBears.Library.Order> GetOrders()
+        public IEnumerable<BusinessBears.Library.Training> GetProducts()
         {
             // disable unnecessary tracking for performance benefit
-            IQueryable<Orders> items = _dbContext.Orders.Include(x => x.Customer)
-                .Include(x => x.SoldBears).ThenInclude(x => x.SoldTraining)
-                .ThenInclude(x => x.Product).AsNoTracking();
+            IQueryable<Product> items = _dbContext.Product.AsNoTracking();
 
             return Mapper.Map(items);
         }
@@ -53,45 +51,14 @@ namespace OrderReviews.DataAccess.Repositories
         /// Get a order by ID, including any associated reviews.
         /// </summary>
         /// <returns>The order</returns>
-        public BusinessBears.Library.Order GetOrderById(int id)
+        public BusinessBears.Library.Training GetProductById(int id)
         {
-            Orders order = _dbContext.Orders
-                .AsNoTracking().First(r => r.OrderId == id);
+            Product order = _dbContext.Product
+                .AsNoTracking().First(r => r.ProductId == id);
             return Mapper.Map(order);
         }
 
-        /// <summary>
-        /// Add a order, including any associated reviews.
-        /// </summary>
-        /// <param name="order">The order</param>
-        public void AddOrder(BusinessBears.Library.Order order)
-        {
-            if (order.ID != 0)
-            {
-                _logger.LogWarning("Order to be added has an ID ({orderId}) already: ignoring.", order.ID);
-            }
-
-            _logger.LogInformation($"Adding order");
-
-            Orders entity = Mapper.Map(order);
-            entity.OrderId = 0;
-            _dbContext.Add(entity);
-        }
-
-        /// <summary>
-        /// Delete a order by ID. Any reviews associated to it will also be deleted.
-        /// </summary>
-        /// <param name="orderId">The ID of the order</param>
-        //public void DeleteOrder(int orderId)
-        //{
-        //    _logger.LogInformation("Deleting order with ID {orderId}", orderId);
-        //    Order entity = _dbContext.Order.Find(orderId);
-        //    _dbContext.Remove(entity);
-        //}
-
-       
-
-     
+      
 
         /// <summary>
         /// Persist changes to the data source.

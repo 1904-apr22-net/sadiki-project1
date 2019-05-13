@@ -72,6 +72,8 @@ namespace BusinessBears.DA
             PriceTag = Convert.ToDecimal(order.Price),
             CustomerId = order.CustomerID,
             LocationId = order.LocationID,
+            Customer = Map(order.Customer),
+            Location = Map(order.Location),
             SoldBears = Map(order.bears).ToList()
         };
 
@@ -82,6 +84,8 @@ namespace BusinessBears.DA
             Price = Convert.ToDouble(order.PriceTag),
             CustomerID = order.CustomerId,
             LocationID = order.LocationId,
+            Customer = Map(order.Customer),
+            Location = Map(order.Location),
             bears = Map(order.SoldBears).ToList()
         };
 

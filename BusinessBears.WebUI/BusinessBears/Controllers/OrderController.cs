@@ -20,9 +20,13 @@ namespace BusinessBears.Controllers
         public ICustomerRepository RepoC { get; }
         public ILocationRepository RepoL { get; }
 
-        public OrdersController(ICustomerRepository repo) =>
-            RepoC = repo ?? throw new ArgumentNullException(nameof(repo));
+        public IProductRepository RepoP { get; }
 
+        public OrdersController(ICustomerRepository repo, IProductRepository repo2) {
+            RepoC = repo ?? throw new ArgumentNullException(nameof(repo));
+        RepoP = repo2 ?? throw new ArgumentNullException(nameof(repo2));
+
+        }
         public ActionResult Index([FromQuery]string search = "")
         {
             IEnumerable<Customer> restaurants = RepoC.GetCustomers(search);
@@ -70,6 +74,23 @@ namespace BusinessBears.Controllers
             ViewBag.CustomerID = CustomerID;
             ViewBag.CustomerName = RepoC.GetCustomerById(CustomerID).FirstName + " " + RepoC.GetCustomerById(CustomerID).LastName;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult SelectT([FromQuery]int CustomerID, [FromQuery]int BearNumber)
+        {
+
+            ViewBag.CustomerID = CustomerID;
+            ViewBag.CustomerName = RepoC.GetCustomerById(CustomerID).FirstName + " " + RepoC.GetCustomerById(CustomerID).LastName;
+            ViewBag.BearNumber = BearNumber;
+            IEnumerable<Training> products = RepoP.GetProducts();
+            IEnumerable<ProductViewModel> viewModels = products.Select(x => new ProductViewModel
+            {
+                Id = x.ID,
+                Name = x.Name,
+                Price = x.Price
+            });
+            return View(viewModels);
         }
 
         [HttpPost]

@@ -12,6 +12,8 @@ namespace BusinessBears.Library
         public double Price { get => _price; set => _price = value; }
         public int LocationID { get => location_id; set => location_id = value; }
         public int CustomerID { get => customer_id; set => customer_id = value; }
+        public Location Location { get; set; }
+        public Customer Customer { get; set; }
         public List<OrderBear> bears;
         private DateTime _ordertime;
         public DateTime Ordertime { get => _ordertime; set => _ordertime = value; }

@@ -9,15 +9,15 @@
 <h4>How many bears will be required for this order?</h4>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+        <form asp-action="SelectT">
             <div class="form-group">
-                <input asp-for="FirstName" class="form-control" />
-                @*<span asp-validation-for="Name" class="text-danger"></span>*@
+                <label class="sr-only" for="BearNumber">Bear#:</label>
+                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="BearNumber" name="BearNumber" placeholder="1" />
+                <input type="hidden" class="form-control" id="CustomerID" value="@ViewBag.CustomerID" />
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
         </form>
     </div>
 </div>

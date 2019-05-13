@@ -3682,11 +3682,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.DA\\BusinessBears.DA.csproj",
+      "projectUniqueName": "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.DA\\BusinessBears.DA.csproj",
       "projectName": "BusinessBears.DA",
-      "projectPath": "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.DA\\BusinessBears.DA.csproj",
+      "projectPath": "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.DA\\BusinessBears.DA.csproj",
       "packagesPath": "C:\\Users\\Eid\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.DA\\obj\\",
+      "outputPath": "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.DA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\ProgramData\\Xamarin\\NuGet\\",
@@ -3707,8 +3707,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj": {
-              "projectPath": "C:\\Users\\Eid\\source\\repos\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj"
+            "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj": {
+              "projectPath": "C:\\Users\\Eid\\source\\repos\\sadiki-project1\\BusinessBears.WebUI\\BusinessBears.BL\\BusinessBears.BL.csproj"
             }
           }
         }

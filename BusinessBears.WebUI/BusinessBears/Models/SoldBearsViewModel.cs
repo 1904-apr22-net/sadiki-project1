@@ -6,18 +6,14 @@ using System.Threading.Tasks;
 
 namespace BusinessBears.WebUI.Models
 {
-    public class ProductViewModel
+    public class SoldBearsViewModel
     {
         // the HTML/tag helpers like "DisplayNameFor"
         // will use this instead of the property's name
-        [Display(Name = "ID")]
-        public int Id { get; set; }
+        [Display(Name = "Location ID")]
+        public int ID { get; set; }
 
         [Required]
-        public string Name { get; set; }
-
-        [Required]
-        public double Price { get; set; }
-
+        public IEnumerable<SoldTrainingViewModel> SoldTraining { get; set; }
     }
 }
