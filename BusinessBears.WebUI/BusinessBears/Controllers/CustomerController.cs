@@ -24,8 +24,8 @@ namespace BusinessBears.Controllers
 
         public ActionResult Index([FromQuery]string search = "")
         {
-            IEnumerable<Customer> restaurants = Repo.GetCustomers(search);
-            IEnumerable<CustomerViewModel> viewModels = restaurants.Select(x => new CustomerViewModel
+            IEnumerable<Customer> customers = Repo.GetCustomers(search);
+            IEnumerable<CustomerViewModel> viewModels = customers.Select(x => new CustomerViewModel
             {
                 Id = x.Id,
                 FirstName = x.FirstName,

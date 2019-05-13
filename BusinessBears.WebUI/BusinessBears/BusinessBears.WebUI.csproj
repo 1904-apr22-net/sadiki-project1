@@ -20,9 +20,4 @@
     <ProjectReference Include="..\BusinessBears.DA\BusinessBears.DA.csproj" />
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Views\OrderHistory\" />
-  </ItemGroup>
-
 </Project>
