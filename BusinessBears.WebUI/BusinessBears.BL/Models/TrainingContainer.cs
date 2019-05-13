@@ -11,7 +11,6 @@ namespace BusinessBears.Library
     {
         public int ID { get; set; }
         private Training product;
-        private int _quantity;
         public Training Product { get => product; set => product = value;
         }
 

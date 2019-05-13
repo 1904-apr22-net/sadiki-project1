@@ -43,6 +43,7 @@ namespace BusinessBears
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ILocationRepository, LocationRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

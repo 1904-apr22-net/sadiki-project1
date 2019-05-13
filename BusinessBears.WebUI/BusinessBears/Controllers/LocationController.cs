@@ -53,7 +53,7 @@ namespace BusinessBears.Controllers
             // so that the input fields can be pre-populated instead of blank
             // (important for good UX)
             Location x2 = Repo.GetLocationById(id);
-            x2.Inventory.First(y => y.ID == id2).Quantity = 69;
+            x2.Inventory.First(y => y.ID == id2).Quantity++;
             Repo.UpdateLocation(x2);
             Repo.Save();
             IEnumerable < Location > x3 = Repo.GetLocations();

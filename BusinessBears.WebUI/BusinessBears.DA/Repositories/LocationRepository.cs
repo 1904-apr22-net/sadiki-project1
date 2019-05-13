@@ -97,10 +97,12 @@ namespace LocationReviews.DataAccess.Repositories
 
             // calling Update would mark every property as Modified.
             // this way will only mark the changed properties as Modified.
-            Location currentEntity = _dbContext.Location.Include(x => x.Inventory).ThenInclude(y => y.Product).First(x => x.LocationId == location.ID);
+            //Location currentEntity = _dbContext.Location.Include(x => x.Inventory).ThenInclude(y => y.Product).First(x => x.LocationId == location.ID);
             Location newEntity = Mapper.Map(location);
 
-            _dbContext.Entry(currentEntity).CurrentValues.SetValues(newEntity);
+            _dbContext.Location.Update(newEntity);
+
+            //_dbContext.Entry(currentEntity).CurrentValues.SetValues(newEntity);
             //foreach (var item in newEntity.Inventory)
             //{
             //    var q = _dbContext.Entry(currentEntity.Inventory.First(x => x.InventoryId == item.InventoryId));

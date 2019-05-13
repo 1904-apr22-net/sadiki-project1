@@ -13,14 +13,14 @@ namespace BusinessBears.WebUI.Models
         [Display(Name = "Order ID")]
         public int ID { get; set; }
 
-        [Required]
         public CustomerViewModel Customer { get; set; }
-        [Required]
         public LocationViewModel Location { get; set; }
         public int LocationID { get; set; }
         public int CustomerID { get; set; }
         public DateTime Ordertime {get; set;}
         public double Price { get; set; }
+        [Display(Name = "Bear #")]
+        public int BearNumber { get; set; }
         public IEnumerable<SoldBearsViewModel> SoldBears { get; set; }
     }
 }

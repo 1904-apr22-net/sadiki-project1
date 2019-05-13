@@ -1,4 +1,4 @@
-﻿@model BusinessBears.WebUI.Models.CustomerViewModel
+﻿@model BusinessBears.WebUI.Models.OrderViewModel
 
 @{
     ViewData["Title"] = "Order Processing 2";
@@ -10,14 +10,16 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="SelectT">
+            
             <div class="form-group">
-                <label class="sr-only" for="BearNumber">Bear#:</label>
-                <input type="number" class="form-control mb-2 mr-sm-2 mb-sm-0" id="BearNumber" name="BearNumber" placeholder="1" />
-                <input type="hidden" class="form-control" id="CustomerID" value="@ViewBag.CustomerID" />
+                <label asp-for="BearNumber" class="control-label"></label>
+                <input asp-for="BearNumber" class="form-control" />
+              
             </div>
-                <div class="form-group">
-                    <input type="submit" value="Submit" class="btn btn-primary" />
-                </div>
+            <input asp-for="CustomerID" type="hidden" value=@ViewBag.CustomerID />
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </div>

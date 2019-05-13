@@ -77,12 +77,11 @@ namespace BusinessBears.Controllers
         }
 
         [HttpPost]
-        public ActionResult SelectT([FromQuery]int CustomerID, [FromQuery]int BearNumber)
+        public ActionResult SelectT([Bind("CustomerID,BearNumber")]OrderViewModel viewModel)
         {
-
-            ViewBag.CustomerID = CustomerID;
-            ViewBag.CustomerName = RepoC.GetCustomerById(CustomerID).FirstName + " " + RepoC.GetCustomerById(CustomerID).LastName;
-            ViewBag.BearNumber = BearNumber;
+            ViewBag.CustomerID = viewModel.CustomerID;
+            ViewBag.CustomerName = RepoC.GetCustomerById(viewModel.CustomerID).FirstName + " " + RepoC.GetCustomerById(viewModel.CustomerID).LastName;
+            ViewBag.BearNumber = viewModel.BearNumber;
             IEnumerable<Training> products = RepoP.GetProducts();
             IEnumerable<ProductViewModel> viewModels = products.Select(x => new ProductViewModel
             {
