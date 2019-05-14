@@ -82,10 +82,12 @@ namespace BusinessBears.Controllers
             // we pass the current values into the Edit view
             // so that the input fields can be pre-populated instead of blank
             // (important for good UX)
-            Location x = Repo.GetLocationById(id);
-            x.Inventory.First(y => y.Product.ID == id2).Quantity--;
-            Repo.UpdateLocation(x);
-            var viewModel = new LocationViewModel
+            Location x2 = Repo.GetLocationById(id);
+            x2.Inventory.First(y => y.ID == id2).Quantity--;
+            Repo.UpdateLocation(x2);
+            Repo.Save();
+            IEnumerable<Location> x3 = Repo.GetLocations();
+            IEnumerable<LocationViewModel> viewModels = x3.Select(x => new LocationViewModel
             {
                 ID = x.ID,
                 Inventory = x.Inventory.Select(y => new InventoryItemViewModel()
@@ -101,10 +103,9 @@ namespace BusinessBears.Controllers
                     }
                 }
                 ).OrderBy(y => y.Product.Name)
-            };
+            });
             return RedirectToAction(nameof(Index));
         }
-
 
 
 
