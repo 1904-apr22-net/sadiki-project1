@@ -145,15 +145,11 @@ namespace BusinessBears.Controllers
         }
 
         [HttpPost]
-        //public ActionResult Finish(OrderViewModel viewModel, int LocationID)
         public ActionResult Finish(List<int> TrainingArray, int CustomerID, int LocationID)
         {
             IEnumerable<Training> products = RepoP.GetProducts();
             Order viewModel = new Order();
             viewModel.bears = new List<OrderBear>();
-            //List<OrderBear> test = new List<OrderBear>();
-            //OrderBear sbvm = new OrderBear();
-            //sbvm.upgrades = new List<TrainingContainer>();
             int tester = 0;
             for (int i2 = 0; i2 < TrainingArray.Where(x=>x ==0).Count();i2++)
             {
@@ -174,65 +170,16 @@ namespace BusinessBears.Controllers
                 tester++;
 
             }
-            //foreach (int i in TrainingArray)
-            //{
-               
-            //    if (i == 0)
-            //    {
-            //        test.Add(sbvm);
-            //    }
-            //    else if (i == -1)
-            //    {
-            //        sbvm.upgrades = new List<TrainingContainer>();
-            //    }
-            //    else
-            //    {
-            //        var p = Mapper.Map(products.First(x => x.ID == i));
-            //        TrainingContainer st = new TrainingContainer()
-            //        {
-            //            Product = Mapper.Map(p)
-            //        };
-            //        ;
-            //        sbvm.AddTraining(st);
-            //    };
-            //}
-            //viewModel.bears = test;
+            
             Customer c = RepoC.GetCustomerById(CustomerID);
-            //viewModel.Customer = new Customer();
             viewModel.CustomerID = c.Id;
-            //viewModel.Customer.FirstName = c.FirstName;
-            //viewModel.Customer.LastName = c.LastName;
+ 
 
 
             Location selectedlocation = RepoL.GetLocationById(LocationID);
             Order finishedorder = viewModel;
             
-            //Order finishedorder = new Order
-            //{
-            //    ID = viewModel.ID,
-            //    Price = viewModel.Price,
-            //    Customer = new Customer()
-            //    {
-            //        FirstName = viewModel.Customer.FirstName,
-            //        LastName = viewModel.Customer.LastName
-            //    },
-            //    LocationID = LocationID,
-            //    Location = selectedlocation,
-            //    CustomerID = viewModel.CustomerID,
-            //    bears = viewModel.SoldBears.Select(y => new OrderBear()
-            //    {
-            //        ID = y.ID,
-            //        upgrades = y.SoldTraining.Select(z => new TrainingContainer()
-            //        {
-            //            ID = z.Id,
-            //            Product = new Training()
-            //            {
-            //                Name = z.Product.Name,
-            //                Price = z.Product.Price
-            //            }
-            //        }).ToList()
-            //    }).ToList()
-            //};
+          
             selectedlocation.ProcessOrder(finishedorder);
             finishedorder.Location = selectedlocation;
             RepoL.UpdateLocation(selectedlocation);
