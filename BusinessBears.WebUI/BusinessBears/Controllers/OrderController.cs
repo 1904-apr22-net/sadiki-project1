@@ -10,6 +10,7 @@ using BusinessBears.WebUI.Models;
 using BusinessBears.Library;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using BusinessBears.DA;
 
 namespace BusinessBears.Controllers
 {
@@ -21,11 +22,13 @@ namespace BusinessBears.Controllers
         public ILocationRepository RepoL { get; }
 
         public IProductRepository RepoP { get; }
+        public IOrderRepository RepoO { get; }
 
-        public OrdersController(ICustomerRepository repo, IProductRepository repo2) {
+        public OrdersController(ICustomerRepository repo, IProductRepository repo2, ILocationRepository repo3, IOrderRepository repo4) {
             RepoC = repo ?? throw new ArgumentNullException(nameof(repo));
         RepoP = repo2 ?? throw new ArgumentNullException(nameof(repo2));
-
+            RepoL = repo3 ?? throw new ArgumentNullException(nameof(repo3));
+            RepoO = repo4 ?? throw new ArgumentNullException(nameof(repo4));
         }
         public ActionResult Index([FromQuery]string search = "")
         {
@@ -88,13 +91,136 @@ namespace BusinessBears.Controllers
                 Id = x.ID,
                 Name = x.Name,
                 Price = x.Price
-            });
+            }).Where(x => x.Name != "Bear");
             return View(viewModels);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        public ActionResult SelectL(List<int> TrainingArray, int CustomerID)
+        {
+            IEnumerable<Training> products = RepoP.GetProducts();
+            OrderViewModel viewModel = new OrderViewModel();
+            viewModel.SoldBears = new List<SoldBearsViewModel>();
+            foreach (int i in TrainingArray)
+            {
+                SoldBearsViewModel sbvm = new SoldBearsViewModel();
+                sbvm.SoldTraining = new List<SoldTrainingViewModel>();
+                if (i == 0)
+                {
+                    viewModel.SoldBears.Append(sbvm);
+                }
+                else if (i == -1)
+                {
+                    viewModel.SoldBears.Append(sbvm);
+                }
+                else
+                {
+                    var p = Mapper.Map(products.First(x => x.ID == i));
+                    SoldTrainingViewModel st = new SoldTrainingViewModel();
+                    
+                    st.Product = new ProductViewModel
+                        {
+                            Id = p.ProductId,
+                            Name = p.ProductName,
+                            Price = Convert.ToDouble(p.DefPrice)
+                        }
+                    ;
+                    sbvm.SoldTraining = new List<SoldTrainingViewModel>() { st };
+                };
+            }
+            Customer c = RepoC.GetCustomerById(CustomerID);
+            viewModel.Customer = new CustomerViewModel()
+            {
+                FirstName = c.FirstName,
+                LastName = c.LastName,
+                Id = c.Id
+            };
 
+            IEnumerable<Location> locations = RepoL.GetLocations();
+            ViewBag.locationArray = locations.Select(x => new List<int> { x.ID });
+            ViewBag.trainingArray = TrainingArray;
+            ViewBag.CustomerID = CustomerID;
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        //public ActionResult Finish(OrderViewModel viewModel, int LocationID)
+        public ActionResult Finish(List<int> TrainingArray, int CustomerID, int LocationID)
+        {
+            IEnumerable<Training> products = RepoP.GetProducts();
+            Order viewModel = new Order();
+            viewModel.bears = new List<OrderBear>();
+            List<OrderBear> test = new List<OrderBear>();
+            OrderBear sbvm = new OrderBear();
+            sbvm.upgrades = new List<TrainingContainer>();
+            TrainingArray.RemoveAt(TrainingArray.Count - 1);
+            foreach (int i in TrainingArray)
+            {
+               
+                if (i == 0)
+                {
+                    test.Add(sbvm);
+                }
+                else if (i == -1)
+                {
+                    sbvm.upgrades = new List<TrainingContainer>();
+                }
+                else
+                {
+                    var p = Mapper.Map(products.First(x => x.ID == i));
+                    TrainingContainer st = new TrainingContainer()
+                    {
+                        Product = Mapper.Map(p)
+                    };
+                    ;
+                    sbvm.AddTraining(st);
+                };
+            }
+            viewModel.bears = test;
+            Customer c = RepoC.GetCustomerById(CustomerID);
+            viewModel.Customer = new Customer();
+            viewModel.Customer.FirstName = c.FirstName;
+            viewModel.Customer.LastName = c.LastName;
+
+
+            Location selectedlocation = RepoL.GetLocationById(LocationID);
+            Order finishedorder = viewModel;
+            
+            //Order finishedorder = new Order
+            //{
+            //    ID = viewModel.ID,
+            //    Price = viewModel.Price,
+            //    Customer = new Customer()
+            //    {
+            //        FirstName = viewModel.Customer.FirstName,
+            //        LastName = viewModel.Customer.LastName
+            //    },
+            //    LocationID = LocationID,
+            //    Location = selectedlocation,
+            //    CustomerID = viewModel.CustomerID,
+            //    bears = viewModel.SoldBears.Select(y => new OrderBear()
+            //    {
+            //        ID = y.ID,
+            //        upgrades = y.SoldTraining.Select(z => new TrainingContainer()
+            //        {
+            //            ID = z.Id,
+            //            Product = new Training()
+            //            {
+            //                Name = z.Product.Name,
+            //                Price = z.Product.Price
+            //            }
+            //        }).ToList()
+            //    }).ToList()
+            //};
+            selectedlocation.ProcessOrder(finishedorder);
+            finishedorder.Location = selectedlocation;
+            RepoL.UpdateLocation(selectedlocation);
+            RepoO.AddOrder(finishedorder);
+            RepoL.Save();
+            RepoO.Save();
+            return View();
+        }
 
 
 

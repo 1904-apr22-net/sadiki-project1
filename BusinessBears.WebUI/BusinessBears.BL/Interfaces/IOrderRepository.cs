@@ -18,7 +18,7 @@ namespace BusinessBears.Library.Interfaces
         /// Get a order by ID, including any associated reviews.
         /// </summary>
         /// <returns>The order</returns>
-       // Order GetOrderById(int id);
+        IEnumerable<Order> GetOrders(string a, string b, string c);
 
         /// <summary>
         /// Add a order, including any associated reviews.

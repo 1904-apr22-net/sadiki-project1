@@ -103,7 +103,7 @@ Insert into BBear.Customer (FirstName, LastName) Values ('Bear', 'Grylls'), ('Wa
 
 Insert into BBear.Customer (FirstName, LastName) Values ('Horace', 'Greensbury'), ('Nick', 'Escalona'), ('Mimi', 'Parfait') , ('Red', 'Calhoun') 
 
-
+Delete From BBear.Orders
 
 -- Customer -- Each order has one customer, but a customer can have many orders
 

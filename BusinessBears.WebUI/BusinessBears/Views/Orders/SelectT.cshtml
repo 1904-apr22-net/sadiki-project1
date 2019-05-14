@@ -1,59 +1,66 @@
 ﻿@model IEnumerable<BusinessBears.WebUI.Models.ProductViewModel>
 
 @{
-    ViewData["Title"] = "Order Processing 2";
+    ViewData["Title"] = "Order Processing 3";
 }
 
-<h4>Customer Selected: @ViewBag.CustomerName + @ViewBag.BearNumber</h4>
+<h4>Customer Selected: @ViewBag.CustomerName</h4>
 <hr />
-<h4>How many bears will be required for this order?</h4>
+<h4>Select the necessary training for each bear.</h4>
 <div class="row">
     <div class="col-md-4">
        
     </div>
 </div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Bear # 
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @(ViewBag.BearNumber == null)
-        @for (int i=0; i < ViewBag.BearNumber;i++)
-        {
+<form asp-action="SelectL" method="POST">
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @i
-                </td>
-                <td></td>
-                <td></td>
+                <th>
+                    Bear #
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
             </tr>
-            @foreach (var item2 in Model)
+        </thead>
+        <tbody>
+            @for (int i = 1; i < ViewBag.BearNumber + 1; i++)
             {
-    <tr>
-        <td></td>
-        <td>
-            @Html.DisplayFor(model => item2.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item2.Price)
-        </td>
-        <td>
-            @* Put some selector here. Checkbox, perhaps?  *@
-        </td>
-    </tr>
+                <tr>
+                    <td>
+                        @i
+                    </td>
+                    <td></td>
+                    <td>$199.99</td>
+                </tr>
+                @foreach (var item2 in Model)
+                {
+                    <tr>
+                        <td></td>
+                        <td>
+                            @Html.DisplayFor(model => item2.Name)
+                        </td>
+                        <td>
+                            $@Html.DisplayFor(model => item2.Price)
+                        </td>
+                        <td>
+                            <input type="checkbox" name=TrainingArray value=@item2.Id />
+
+                        </td>
+                    </tr>
+                }
+        <tr>
+            <td><input type="hidden" name=TrainingArray value=0 /></td>
+            <td><input type="hidden" name=TrainingArray value=-1 /></td>
+        </tr>
             }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+    <input type="hidden" name=CustomerID value=@ViewBag.CustomerID />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

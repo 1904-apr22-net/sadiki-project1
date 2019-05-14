@@ -12,7 +12,7 @@ namespace BusinessBears.Library.Interfaces
         /// Get all location with deferred execution, including any associated reviews.
         /// </summary>
         /// <returns>The collection of location</returns>
-        IEnumerable<Location> GetLocations(string search = null);
+        IEnumerable<Location> GetLocations();
 
         /// <summary>
         /// Get a location by ID, including any associated reviews.

@@ -14,7 +14,7 @@ namespace BusinessBears.Library
     {
        
 
-        public List<TrainingContainer> upgrades;
+        public List<TrainingContainer> upgrades { get; set; }
 
         public int ID { get; set; }
         public double Price { get; set; }
@@ -34,7 +34,7 @@ namespace BusinessBears.Library
         /// <returns></returns>
         public double getTotalPrice()
         {
-            double d = this.Price;
+            double d = 199.99;
             foreach (TrainingContainer item in upgrades)
             {
                 d += item.Product.getPrice();

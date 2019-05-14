@@ -15,6 +15,10 @@ namespace BusinessBears.Library
         public Location Location { get; set; }
         public Customer Customer { get; set; }
         public List<OrderBear> bears;
+        public void AddBear(OrderBear bear)
+        {
+            bears.Add(bear);
+        }
         private DateTime _ordertime;
         public DateTime Ordertime { get => _ordertime; set => _ordertime = value; }
         public int ID { get; set; }

@@ -24,7 +24,7 @@ namespace BusinessBears.Controllers
 
         public ActionResult Index([FromQuery]string search = "")
         {
-            IEnumerable<Location> locations = Repo.GetLocations(search);
+            IEnumerable<Location> locations = Repo.GetLocations();
             IEnumerable<LocationViewModel> viewModels = locations.Select(x => new LocationViewModel
             {
                 ID = x.ID,

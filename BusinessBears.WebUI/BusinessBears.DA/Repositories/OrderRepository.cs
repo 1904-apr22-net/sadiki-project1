@@ -42,10 +42,44 @@ namespace OrderReviews.DataAccess.Repositories
         public IEnumerable<BusinessBears.Library.Order> GetOrders()
         {
             // disable unnecessary tracking for performance benefit
-            IQueryable<Orders> items = _dbContext.Orders.Include(x => x.Customer)
+            IQueryable<Orders> items = _dbContext.Orders.Include(x=>x.Location).Include(x => x.Customer)
                 .Include(x => x.SoldBears).ThenInclude(x => x.SoldTraining)
                 .ThenInclude(x => x.Product).AsNoTracking();
 
+            return Mapper.Map(items);
+        }
+
+        public IEnumerable<BusinessBears.Library.Order> GetOrders(string a, string b, string c)
+        {
+            // disable unnecessary tracking for performance benefit
+            IQueryable<Orders> items = _dbContext.Orders.Include(x => x.Location).Include(x => x.Customer)
+                .Include(x => x.SoldBears).ThenInclude(x => x.SoldTraining)
+                .ThenInclude(x => x.Product).AsNoTracking();
+            if (b == "Location")
+            {
+                items = items.Where(x => x.LocationId == int.Parse(a));
+            }
+            else
+            {
+                items = items.Where(x => x.Customer.FirstName.Contains(a) || x.Customer.LastName.Contains(a));
+            }
+
+            if (c == "Expensive")
+            {
+                items = items.OrderByDescending(x => x.PriceTag);
+            }
+            else if (c == "Cheap")
+            {
+                items = items.OrderBy(x => x.PriceTag);
+            }
+            else if (c == "Oldest")
+            {
+                items = items.OrderByDescending(x => x.CreatedAt);
+            }
+            else if (c == "Newest")
+            {
+                items = items.OrderBy(x => x.CreatedAt);
+            }
             return Mapper.Map(items);
         }
 

@@ -14,12 +14,100 @@
 <!-- http://www.example.com?key=value&key2=value2 -->
 <div>
     <form asp-action="Index" method="GET" class="form-inline">
-        <label class="sr-only" for="search">Search:</label>
+        @*<label class="sr-only" for="search">Search:</label>*@
+        <p>Search:</p>
         <input type="search" class="form-control mb-2 mr-sm-2 mb-sm-0" id="search" name="search" placeholder="Search" />
+        <hr />
+        @*<label class="sr-only" for="search">Search By:</label>*@
+        <p>Search By:</p>
+        <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Customer" name="searchby" checked value="Customer" />
+        <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Location" name="searchby" value="Location" />
+        <hr />
+        @*<label class="sr-only" for="search">Order By:</label>*@
+        <p>Search:</p>
+        <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Expensive" name="orderby" value="Expensive" />
+        <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Cheap" name="orderby" value="Cheap" />
+        <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Oldest" name="orderby" value="Oldest" />
+        <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Newest" name="orderby" checked value="Newest" />
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
+<h4></h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Location
+            </th>
+            <th>
+                Created At
+            </th>
+            <th>
+                Training Name
+            </th>
+            <th>
+                Training Price
+            </th>
+            <th>
+                Total Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Customer.FirstName) @Html.DisplayFor(modelItem => item.Customer.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.LocationID)</td>
+            <td>@Html.DisplayFor(modelItem => item.Ordertime)</td>
+            <td></td>
+        </tr>
+            @foreach (var item2 in item.SoldBears)
+            {
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            Bear
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+                @foreach (var item3 in item2.SoldTraining)
+                {
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>@item3.Product.Name</td>
+        <td>$@item3.Product.Price</td>
+        <td></td>
+    </tr>
+            }
+            }
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>$@item.Price</td>
+    </tr>
+        }
+        </tbody>
+    </table>

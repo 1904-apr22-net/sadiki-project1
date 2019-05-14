@@ -22,10 +22,15 @@ namespace BusinessBears.Controllers
         public OrderHistoryController(IOrderRepository repo) =>
             Repo = repo ?? throw new ArgumentNullException(nameof(repo));
 
-        public ActionResult Index([FromQuery]string search = "")
+        public ActionResult Index([FromQuery]string search = "", [FromQuery]string searchby = "", [FromQuery]string orderby = "")
         {
-            IEnumerable<Order> restaurants = Repo.GetOrders();
-            IEnumerable<OrderViewModel> viewModels = restaurants.Select(x => new OrderViewModel
+            IEnumerable<Order> orders;
+            orders = Repo.GetOrders();
+            if (search != null)
+            {
+                orders = Repo.GetOrders(search, searchby, orderby);
+            }
+            IEnumerable<OrderViewModel> viewModels = orders.Select(x => new OrderViewModel
             {
                 ID = x.ID,
                 Price = x.Price,

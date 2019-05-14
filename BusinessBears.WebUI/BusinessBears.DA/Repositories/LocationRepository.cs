@@ -38,7 +38,7 @@ namespace LocationReviews.DataAccess.Repositories
         /// Get all locations with deferred execution, including any associated reviews.
         /// </summary>
         /// <returns>The collection of locations</returns>
-        public IEnumerable<BusinessBears.Library.Location> GetLocations(string search = null)
+        public IEnumerable<BusinessBears.Library.Location> GetLocations()
         {
             // disable unnecessary tracking for performance benefit
             IQueryable<Location> items = _dbContext.Location.Include(x => x.Inventory).ThenInclude(x => x.Product)
