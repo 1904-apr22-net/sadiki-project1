@@ -72,7 +72,7 @@ namespace BusinessBears.DA
             PriceTag = Convert.ToDecimal(order.Price),
             CustomerId = order.CustomerID,
             LocationId = order.LocationID,
-            Customer = Map(order.Customer),
+            //Customer = null ?? Map(order.Customer),
             Location = Map(order.Location),
             SoldBears = Map(order.bears).ToList()
         };

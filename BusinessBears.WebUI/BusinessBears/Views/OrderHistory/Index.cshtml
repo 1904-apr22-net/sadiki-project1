@@ -20,14 +20,20 @@
         <hr />
         @*<label class="sr-only" for="search">Search By:</label>*@
         <p>Search By:</p>
+        <span>Customer</span>
         <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Customer" name="searchby" checked value="Customer" />
+        <span>Location</span>
         <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Location" name="searchby" value="Location" />
         <hr />
         @*<label class="sr-only" for="search">Order By:</label>*@
-        <p>Search:</p>
+        <p>Order By:</p>
+        <span>Most Expensive</span>
         <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Expensive" name="orderby" value="Expensive" />
+        <span>Cheapest</span>
         <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Cheap" name="orderby" value="Cheap" />
+        <span>Oldest</span>
         <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Oldest" name="orderby" value="Oldest" />
+        <span>Newest</span>
         <input type="radio" class="form-control mb-2 mr-sm-2 mb-sm-0" id="Newest" name="orderby" checked value="Newest" />
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

@@ -41,6 +41,7 @@ namespace BusinessBears.Controllers
                     LastName = x.Customer.LastName
                 },
                 LocationID = x.LocationID,
+                Ordertime = x.Ordertime,
                 CustomerID = x.CustomerID,
                 SoldBears = x.bears.Select(y => new SoldBearsViewModel()
                 {
