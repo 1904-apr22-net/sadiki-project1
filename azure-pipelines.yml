@@ -20,3 +20,19 @@ steps:
     command: test
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: $(solutionPath)/BusinessBears.WebUI/*.csproj
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free-Trial(6b0c24ca-82f5-4ae0-9ad3-0c0422d6ef66)'
+    appType: 'webApp'
+    WebAppName: '1904-BusinessBears'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
