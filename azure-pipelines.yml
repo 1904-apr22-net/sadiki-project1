@@ -15,3 +15,8 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration) BusinessBears.WebUI
   displayName: 'dotnet build $(buildConfiguration)BusinessBears.WebUI '
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/BusinessBears.Test/BusinessBears.Test.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
