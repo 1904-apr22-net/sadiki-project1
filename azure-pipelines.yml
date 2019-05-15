@@ -19,4 +19,4 @@ steps:
   inputs:
     command: test
     projects: '**/BusinessBears.Test/BusinessBears.Test.csproj'
-    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+    arguments: '--configuration $(buildConfiguration)BusinessBears.WebUI --collect "Code coverage"'
