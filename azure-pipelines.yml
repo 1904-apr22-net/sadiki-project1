@@ -25,7 +25,7 @@ steps:
   inputs:
     command: publish
     publishWebProjects: false
-    projects: $(solutionPath)/BusinessBears.WebUI/*.csproj
+    projects: '**/BusinessBears.WebUI/*.csproj'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
 
