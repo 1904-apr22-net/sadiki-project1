@@ -13021,6 +13021,7 @@
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Language >= 2.2.0",
+      "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Abstractions >= 2.2.4",
       "Microsoft.NETCore.App >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.3",
@@ -13092,6 +13093,10 @@
           "Microsoft.AspNetCore.Razor.Language": {
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[2.2.4, )"
           },
           "Microsoft.EntityFrameworkCore.Abstractions": {
             "target": "Package",

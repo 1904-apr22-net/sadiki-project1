@@ -29,7 +29,7 @@
           "Microsoft.AspNetCore.App": "2.2.0",
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.AspNetCore.Razor.Language": "2.2.0",
-          "Microsoft.EntityFrameworkCore": "2.2.4",
+          "Microsoft.EntityFrameworkCore.Abstractions": "2.2.4",
           "Microsoft.NETCore.App": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.2.3",
           "NLog": "4.6.3"
@@ -476,6 +476,7 @@
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.AspNetCore.Razor.Language": "2.2.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
+          "Microsoft.EntityFrameworkCore.Abstractions": "2.2.4",
           "NLog": "4.6.3"
         },
         "runtime": {
@@ -492,6 +493,7 @@
           "Microsoft.AspNetCore.Razor.Design": "2.2.0",
           "Microsoft.AspNetCore.Razor.Language": "2.2.0",
           "Microsoft.EntityFrameworkCore": "2.2.4",
+          "Microsoft.EntityFrameworkCore.Abstractions": "2.2.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
         },
         "runtime": {
