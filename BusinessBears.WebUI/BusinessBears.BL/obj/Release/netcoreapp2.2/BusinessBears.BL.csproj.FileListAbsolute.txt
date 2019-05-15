@@ -8,3 +8,5 @@ C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\o
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.AssemblyInfo.cs
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.dll
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.pdb
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\bin\Release\netcoreapp2.2\NLog.config
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.csprojAssemblyReference.cache
