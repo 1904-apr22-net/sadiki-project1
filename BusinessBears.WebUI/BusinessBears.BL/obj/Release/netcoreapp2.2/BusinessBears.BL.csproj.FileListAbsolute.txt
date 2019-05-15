@@ -1,0 +1,11 @@
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\bin\Release\netcoreapp2.2\BusinessBears.BL.deps.json
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\bin\Release\netcoreapp2.2\BusinessBears.BL.runtimeconfig.json
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\bin\Release\netcoreapp2.2\BusinessBears.BL.runtimeconfig.dev.json
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\bin\Release\netcoreapp2.2\BusinessBears.BL.dll
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\bin\Release\netcoreapp2.2\BusinessBears.BL.pdb
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.csprojAssemblyReference.cache
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.csproj.CoreCompileInputs.cache
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.AssemblyInfoInputs.cache
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.AssemblyInfo.cs
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.dll
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Release\netcoreapp2.2\BusinessBears.BL.pdb
