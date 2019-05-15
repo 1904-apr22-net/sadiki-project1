@@ -1,0 +1,22 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet build --configuration $(buildConfiguration) BusinessBears.WebUI
+  displayName: 'dotnet build $(buildConfiguration)BusinessBears.WebUI '
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/BusinessBears.Test/BusinessBears.Test.csproj'
+    arguments: '--configuration $(buildConfiguration)BusinessBears.WebUI --collect "Code coverage"'
