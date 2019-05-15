@@ -44,24 +44,26 @@
         "netcoreapp2.2": {
           "dependencies": {
             "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             },
             "Microsoft.AspNetCore.Razor.Design": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "(, )"
             },
             "Microsoft.AspNetCore.Razor.Language": {
               "target": "Package",
-              "version": "[2.2.0, )"
+              "version": "(, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[2.2.4, )"
+              "version": "(, )"
             },
             "Microsoft.EntityFrameworkCore.Abstractions": {
               "target": "Package",
-              "version": "[2.2.4, )"
+              "version": "(, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",
