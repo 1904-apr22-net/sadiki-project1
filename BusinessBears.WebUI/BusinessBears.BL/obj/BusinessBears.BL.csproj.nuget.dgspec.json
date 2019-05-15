@@ -49,21 +49,13 @@
               "version": "[2.2.0, )",
               "autoReferenced": true
             },
-            "Microsoft.AspNetCore.Razor.Design": {
-              "target": "Package",
-              "version": "(, )"
-            },
-            "Microsoft.AspNetCore.Razor.Language": {
-              "target": "Package",
-              "version": "(, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[2.2.4, )"
             },
             "Microsoft.EntityFrameworkCore.Abstractions": {
               "target": "Package",
-              "version": "(, )"
+              "version": "[2.2.4, )"
             },
             "Microsoft.NETCore.App": {
               "suppressParent": "All",

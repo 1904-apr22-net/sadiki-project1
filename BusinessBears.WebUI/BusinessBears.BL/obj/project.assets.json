@@ -12112,8 +12112,6 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.AspNetCore.App >= 2.2.0",
-      "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
-      "Microsoft.AspNetCore.Razor.Language >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 2.2.4",
       "Microsoft.EntityFrameworkCore.Abstractions >= 2.2.4",
       "Microsoft.NETCore.App >= 2.2.0",
@@ -12165,16 +12163,10 @@
       "netcoreapp2.2": {
         "dependencies": {
           "Microsoft.AspNetCore.App": {
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[2.2.0, )"
-          },
-          "Microsoft.AspNetCore.Razor.Design": {
-            "target": "Package",
-            "version": "[2.2.0, )"
-          },
-          "Microsoft.AspNetCore.Razor.Language": {
-            "target": "Package",
-            "version": "[2.2.0, )"
+            "version": "[2.2.0, )",
+            "autoReferenced": true
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
