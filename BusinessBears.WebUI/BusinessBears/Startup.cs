@@ -38,7 +38,7 @@ namespace BusinessBears
             });
 
             services.AddDbContext<BBearContext>(options =>
-         options.UseSqlServer(Configuration["BBear:ConnectionString"]));
+         options.UseSqlServer(Configuration.GetConnectionString("BBear:ConnectionString")));
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<ILocationRepository, LocationRepository>();
