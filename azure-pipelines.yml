@@ -18,5 +18,5 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: test
-    projects: '**/BusinessBears.Test/BusinessBears.Test.csproj'
-    arguments: '--configuration $(buildConfiguration)BusinessBears.WebUI --collect "Code coverage"'
+    projects: '*/BusinessBears.Test/BusinessBears.Test.csproj'
+    arguments: '--configuration $(buildConfiguration) BusinessBears.WebUI --collect "Code coverage"'
