@@ -98,16 +98,16 @@ namespace OrderReviews.DataAccess.Repositories
         /// Add a order, including any associated reviews.
         /// </summary>
         /// <param name="order">The order</param>
-        public void AddOrder(BusinessBears.Library.Order order)
+        public void AddOrder(BusinessBears.Library.Order Order)
         {
-            if (order.ID != 0)
+            if (Order.ID != 0)
             {
-                _logger.LogWarning("Order to be added has an ID ({orderId}) already: ignoring.", order.ID);
+                _logger.LogWarning("Order to be added has an ID ({orderId}) already: ignoring.", Order.ID);
             }
 
             _logger.LogInformation($"Adding order");
 
-            Orders entity = Mapper.Map(order);
+            Orders entity = Mapper.Map(Order);
             entity.OrderId = 0;
             _dbContext.Add(entity);
         }

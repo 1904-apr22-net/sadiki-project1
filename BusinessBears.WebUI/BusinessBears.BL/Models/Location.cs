@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace BusinessBears.Library
 {
@@ -39,17 +40,9 @@ namespace BusinessBears.Library
             foreach (OrderBear bear in order.bears)
                 foreach (var item2 in bear.upgrades)
                 {
-                    if (inventory.Find(x => x.Product.Name == item2.Product.Name) != null)
+                    if (inventory.Find(x => x.Product.Name == item2.Product.Name) != null || inventory.Find(x => x.Product.Name == item2.Product.Name).Quantity == 0)
                     {
-                        if (inventory.Find(x => x.Product.Name == item2.Product.Name).Quantity == 0)
-                        {
-                            upgradesQ = false;
-                        }
-                    }
-                    else
-                    {
-
-                        Console.WriteLine("This location does not stock this training module.");
+                        upgradesQ = false;
                     }
                 }
             if (inventory.Find(x => x.Product.Name == "Bear").Quantity - order.bears.Count < 0 || upgradesQ == false)
