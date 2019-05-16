@@ -65,16 +65,16 @@ namespace CustomerReviews.DataAccess.Repositories
         /// Add a customer, including any associated reviews.
         /// </summary>
         /// <param name="customer">The customer</param>
-        public void AddCustomer(BusinessBears.Library.Customer customer)
+        public void AddCustomer(BusinessBears.Library.Customer Customer)
         {
-            if (customer.Id != 0)
+            if (Customer.Id != 0)
             {
-                _logger.LogWarning("Customer to be added has an ID ({customerId}) already: ignoring.", customer.Id);
+                _logger.LogWarning("Customer to be added has an ID ({customerId}) already: ignoring.", Customer.Id);
             }
 
             _logger.LogInformation($"Adding customer");
 
-            Customer entity = Mapper.Map(customer);
+            Customer entity = Mapper.Map(Customer);
             entity.CustomerId = 0;
             _dbContext.Add(entity);
         }
