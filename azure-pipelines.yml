@@ -1,4 +1,5 @@
 # ASP.NET Core
+
 # Build and test ASP.NET Core projects targeting .NET Core.
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
@@ -14,14 +15,6 @@ variables:
 
 steps:
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonarcloud-szsaunders'
-    organization: 'szsaunders-github'
-    scannerMode: 'MSBuild'
-    projectKey: 'BusinessBears'
-    extraProperties: |
-      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
 
 - script: dotnet build --configuration $(buildConfiguration) BusinessBears.WebUI
   displayName: 'dotnet build $(buildConfiguration) BusinessBears.WebUI '
@@ -31,12 +24,7 @@ steps:
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
-- task: SonarCloudAnalyze@1
-  inputs: {}
 
-- task: SonarCloudPublish@1
-  inputs:
-    pollingTimeoutSec: '60'
 
 - task: DotNetCoreCLI@2
   inputs:
