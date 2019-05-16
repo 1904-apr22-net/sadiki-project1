@@ -15,6 +15,13 @@ variables:
 
 steps:
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'Szsaunders-Github'
+    organization: 'szsaunders-github'
+    scannerMode: 'MSBuild'
+    projectKey: 'BusinessBears'
+    projectName: 'BusinessBears'
 
 - script: dotnet build --configuration $(buildConfiguration) BusinessBears.WebUI
   displayName: 'dotnet build $(buildConfiguration) BusinessBears.WebUI '
@@ -24,7 +31,12 @@ steps:
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
+- task: SonarCloudAnalyze@1
+  inputs: {}
 
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '60'
 
 - task: DotNetCoreCLI@2
   inputs:
