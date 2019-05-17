@@ -14,14 +14,14 @@
             <div class="form-group">
                 <label asp-for="LocationID" class="control-label"></label>
                 @*<input type="number" name="LocationID" class="form-control" />*@
-                <asp:dr name="LocationID">
+                <select name="LocationID">
                     @*<option name="LocationID" class=form-control value=-1>Select Location ID</option>*@
-                    <option selected name="LocationID" Value="-1">Select Location ID</option>
+                    <option selected name="LocationID" value="-1">Select Location ID</option>
                     @foreach (int location in ViewBag.locationArray)
                     {
                         <option class=form-control name="LocationID" value=@location>@location</option>
                     }
-                </asp:dr>
+                </select>
                 <input type="hidden" name=CustomerID value=@Model.Customer.Id />
                 @for (int i = 0; i < ViewBag.trainingArray.Count; i++)
                 {
