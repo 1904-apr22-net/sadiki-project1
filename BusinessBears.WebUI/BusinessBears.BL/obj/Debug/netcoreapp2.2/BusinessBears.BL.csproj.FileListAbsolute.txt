@@ -20,3 +20,4 @@ C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\o
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Debug\netcoreapp2.2\BusinessBears.BL.AssemblyInfo.cs
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Debug\netcoreapp2.2\BusinessBears.BL.dll
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\obj\Debug\netcoreapp2.2\BusinessBears.BL.pdb
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.BL\bin\Debug\netcoreapp2.2\NLog.config

@@ -26,3 +26,4 @@ C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.DA\o
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.DA\obj\Debug\netcoreapp2.2\BusinessBears.DA.csproj.CopyComplete
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.DA\obj\Debug\netcoreapp2.2\BusinessBears.DA.dll
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.DA\obj\Debug\netcoreapp2.2\BusinessBears.DA.pdb
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears.DA\bin\Debug\netcoreapp2.2\NLog.config

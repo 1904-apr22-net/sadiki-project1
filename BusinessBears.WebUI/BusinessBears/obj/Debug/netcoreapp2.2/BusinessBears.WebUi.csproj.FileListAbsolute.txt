@@ -84,3 +84,4 @@ C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears\obj\
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears\obj\Debug\netcoreapp2.2\Razor\Views\OrderHistory\Index.g.cshtml.cs
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears\obj\Debug\netcoreapp2.2\Razor\Views\Orders\SelectL.g.cshtml.cs
 C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears\obj\Debug\netcoreapp2.2\Razor\Views\Orders\Finish.g.cshtml.cs
+C:\Users\Eid\source\repos\sadiki-project1\BusinessBears.WebUI\BusinessBears\bin\Debug\netcoreapp2.2\NLog.config

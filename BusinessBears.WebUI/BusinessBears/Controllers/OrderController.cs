@@ -98,36 +98,8 @@ namespace BusinessBears.Controllers
         [HttpPost]
         public ActionResult SelectL(List<int> TrainingArray, int CustomerID)
         {
-            IEnumerable<Training> products = RepoP.GetProducts();
             OrderViewModel viewModel = new OrderViewModel();
-            viewModel.SoldBears = new List<SoldBearsViewModel>();
-            foreach (int i in TrainingArray)
-            {
-                SoldBearsViewModel sbvm = new SoldBearsViewModel();
-                sbvm.SoldTraining = new List<SoldTrainingViewModel>();
-                if (i == 0)
-                {
-                    viewModel.SoldBears.Append(sbvm);
-                }
-                else if (i == -1)
-                {
-                    viewModel.SoldBears.Append(sbvm);
-                }
-                else
-                {
-                    var p = Mapper.Map(products.First(x => x.ID == i));
-                    SoldTrainingViewModel st = new SoldTrainingViewModel();
-                    
-                    st.Product = new ProductViewModel
-                        {
-                            Id = p.ProductId,
-                            Name = p.ProductName,
-                            Price = Convert.ToDouble(p.DefPrice)
-                        }
-                    ;
-                    sbvm.SoldTraining = new List<SoldTrainingViewModel>() { st };
-                };
-            }
+            
             Customer c = RepoC.GetCustomerById(CustomerID);
             viewModel.Customer = new CustomerViewModel()
             {
