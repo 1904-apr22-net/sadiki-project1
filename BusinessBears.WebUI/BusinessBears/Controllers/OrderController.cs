@@ -137,7 +137,7 @@ namespace BusinessBears.Controllers
             };
 
             IEnumerable<Location> locations = RepoL.GetLocations();
-            ViewBag.locationArray = locations.Select(x => new List<int> { x.ID });
+            ViewBag.locationArray = locations.Select(x => x.ID);
             ViewBag.trainingArray = TrainingArray;
             ViewBag.CustomerID = CustomerID;
 

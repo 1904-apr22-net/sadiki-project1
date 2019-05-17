@@ -13,65 +13,23 @@
             @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
             <div class="form-group">
                 <label asp-for="LocationID" class="control-label"></label>
-                <input type="number" name="LocationID" class="form-control" />
+                @*<input type="number" name="LocationID" class="form-control" />*@
+                <asp:dr name="LocationID">
+                    @*<option name="LocationID" class=form-control value=-1>Select Location ID</option>*@
+                    <option selected name="LocationID" Value="-1">Select Location ID</option>
+                    @foreach (int location in ViewBag.locationArray)
+                    {
+                        <option class=form-control name="LocationID" value=@location>@location</option>
+                    }
+                </asp:dr>
                 <input type="hidden" name=CustomerID value=@Model.Customer.Id />
                 @for (int i = 0; i < ViewBag.trainingArray.Count; i++)
                 {
                     <input type="hidden" name=TrainingArray value=@ViewBag.trainingArray[i] />
                 }
                 <input type="submit" value="Submit" class="btn btn-primary" />
+
             </div>
         </form>
     </div>
 </div>
-@*<form asp-action="SelectL" method="POST">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        Bear #
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Price)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (int i = 1; i < ViewBag.BearNumber + 1; i++)
-                {
-                    <tr>
-                        <td>
-                            @i
-                        </td>
-                        <td></td>
-                        <td>$199.99</td>
-                    </tr>
-                    @foreach (var item2 in Model)
-                    {
-                        <tr>
-                            <td></td>
-                            <td>
-                                @Html.DisplayFor(model => item2.Name)
-                            </td>
-                            <td>
-                                $@Html.DisplayFor(model => item2.Price)
-                            </td>
-                            <td>
-                                <input type="checkbox" name=TrainingArray value=@item2.Id />
-
-                            </td>
-                        </tr>
-                    }
-                    <tr>
-                        <td><input type="hidden" name=TrainingArray value=0 /></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <input type="hidden" name=CustomerID value=@ViewBag.CustomerID />
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>*@
